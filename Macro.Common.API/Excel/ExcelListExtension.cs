@@ -9,23 +9,21 @@ namespace Macro.Common.API.Excel
 {
     public static class ExcelListExtension
     {
+
+        //Require Administrator rights.
+        //else It throws an error 
         public static void ToExcel<T>(this List<T> list, string pathToSave)
         {
             #region Declarations
 
             if (string.IsNullOrEmpty(pathToSave))
-            {
                 throw new Exception("Invalid file path.");
-            }
+
             else if (pathToSave.ToLower().Contains("") == false)
-            {
                 throw new Exception("Invalid file path.");
-            }
 
             if (list == null)
-            {
                 throw new Exception("No data to export.");
-            }
 
             Microsoft.Office.Interop.Excel.Application excelApp = null;
             Microsoft.Office.Interop.Excel.Workbooks books = null;
@@ -84,7 +82,6 @@ namespace Macro.Common.API.Excel
 
                 #region Writing data to cell
 
-
                 int count = list.Count;
                 object[,] objData = new object[count, objHeaders.Count];
 
@@ -92,18 +89,10 @@ namespace Macro.Common.API.Excel
                 {
                     var item = list[j];
                     int i = 0;
-                    int k = 0;
                     foreach (KeyValuePair<string, string> entry in objHeaders)
                     {
                         var y = typeof(T).InvokeMember(entry.Key.ToString(), BindingFlags.GetProperty, null, item, null);
-
-                        if (k == 0)
-                        {
-                            objData[j, i++] = "";
-                            k++;
-                            continue;
-                        }
-
+                     
                         if (y != null && y is decimal)
                         {
                             decimal d = (decimal)y;
@@ -113,10 +102,8 @@ namespace Macro.Common.API.Excel
                         }
                         
                         objData[j, i++] = (y == null) ? "" : y.ToString();
-
                     }
                 }
-
 
                 range = sheet.get_Range(strDataStart, optionalValue);
                 range = range.get_Resize(count, objHeaders.Count);
@@ -131,7 +118,6 @@ namespace Macro.Common.API.Excel
                 #endregion
 
                 #region Saving data and Opening Excel file.
-
 
                 if (string.IsNullOrEmpty(pathToSave) == false)
                     book.SaveAs(pathToSave);

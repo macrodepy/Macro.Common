@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Macro.Common.API", "Macro.Common.API\Macro.Common.API.csproj", "{633F3BF0-E596-41E6-B126-965B1477DF1C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Macro.Common.Demo", "Macro.Common.Demo\Macro.Common.Demo.csproj", "{A24628C0-BB7F-43A4-A8A6-28046F996377}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{633F3BF0-E596-41E6-B126-965B1477DF1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{633F3BF0-E596-41E6-B126-965B1477DF1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{633F3BF0-E596-41E6-B126-965B1477DF1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A24628C0-BB7F-43A4-A8A6-28046F996377}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A24628C0-BB7F-43A4-A8A6-28046F996377}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A24628C0-BB7F-43A4-A8A6-28046F996377}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A24628C0-BB7F-43A4-A8A6-28046F996377}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
